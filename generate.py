@@ -42,7 +42,7 @@ def load_model(filepath):
     from model import MusicTransformer
     from hparams import hparams
     
-    file = torch.load(filepath)
+    file = torch.load(filepath, map_location=torch.device("cpu"))
     if "hparams" not in file:
         file["hparams"] = hparams
 
